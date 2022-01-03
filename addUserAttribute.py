@@ -38,6 +38,22 @@ userID = 'magic.johnson@example.com'
 attribute = 'TestMe'
 attributeValue = 'Success'
 
+# get your authentication token
+response = requests.post(
+  IMMUTA_URL + '/bim/apikey/authenticate',
+  headers={'Content-Type': 'application/json'},
+  json={
+    "apikey": API_KEY
+  }
+)
+
+# get the auth token out of the json response
+authResponse = response.json()
+# adding this to troubleshoot auth errors
+print(authResponse)
+authToken = authResponse["token"]
+
+
 # similar approach to above, you could house user attributes externally and pass them in
 
 addAttribute = requests.put(

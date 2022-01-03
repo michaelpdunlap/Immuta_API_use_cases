@@ -41,7 +41,9 @@ columnLooksLikeDate = 'DOB'
 # a sample data source ID for experimentation
 dataSourceID = 1
 # the name of a pre-existing tag for experimentation
-tagName = "YoureItColumn"
+tagName = "Your Tag Here"
+# column to look for
+columnLooksLikeDate = "Search for this field name"
 
 
 # get your authentication token
@@ -53,23 +55,37 @@ response = requests.post(
   }
 )
 
-# Create your tag
+# get the auth token out of the json response
+authResponse = response.json()
+# adding this to troubleshoot auth errors
+print(authResponse)
+authToken = authResponse["token"]
 
-# Get the tag working from call above
+# you can create a tag via API
+# <IMMUTA_URL>/tag
 
-# you could feed in data Sources to this call
-projectResponse = requests.get(
-  IMMUTA_URL + '/dictionary/' + str(dataSourceID),
-  headers={'Authorization': authToken }  
-)
+createTag = requests.post(
+    IMMUTA_URL + '/tag',
+    headers={'Authorization': authToken,
+                'Content-Type': 'application/json'},
+    json=
+        {
+          "rootTag": 
+            {
+                "name": tagName
+            },
+          "tags": [
+                    {
+                      "name": tagName,
+                      "id": 0
+                    }
+                  ]
+            }
+        )
 
-print(projectResponse.json())
-
-# you could pass each dataSourceID from the above call into the column tagging endpoint below
 
 
-
-# pass fields matching date type to this call to add tags
+# pass fields matching date type to this call to add tags to a column in the DataSourceID
 
 tagDataSource = requests.post(
       IMMUTA_URL + '/tag/column/' + str(dataSourceID) + '_' + columnLooksLikeDate,

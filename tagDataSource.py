@@ -40,7 +40,7 @@ API_KEY= "1234"
 # a sample data source ID for experimentation
 dataSourceID = 1
 # the name of a pre-existing tag for experimentation
-tagName = "YoureIt"
+tagName = "YoureItAgain"
 
 
 # get your authentication token
@@ -63,7 +63,7 @@ authToken = authResponse["token"]
 # <IMMUTA_URL>/tag
 
 createTag = requests.post(
-    IMMMUTA_URL + '/tag',
+    IMMUTA_URL + '/tag',
     headers={'Authorization': authToken,
                 'Content-Type': 'application/json'},
     json=
