@@ -1,0 +1,74 @@
+{
+"handler":
+    [
+        {
+            "metadata":
+            {
+                "ssl":true,
+                "userFiles":[],
+                "authenticationMethod":"Access Token",
+                "password":"dbx-admin-api",
+                "port":443,
+                "hostname":"yourdbx.databricks.com",
+                "database":"your_Db",
+                "httpPath":"your_http",
+                "schemaProjectName":"Your DB",
+                "disableClassify":true,
+                "staleDataTolerance":86400,
+                "bodataSchemaName":"customer_success",
+                "bodataTableName":"hr_sample_data",
+                "dataSourceName":"Customer Success Hr Sample Data",
+                "table":"hr_sample_data","schema":"customer_success"
+            }
+        },
+        {
+            "metadata":
+            {
+                "ssl":true,
+                "userFiles":[],
+                "authenticationMethod":"Access Token",
+                "password":"dbx-admin-api",
+                "port":443,
+                "hostname":"yourdbx.databricks.com",
+                "database":"customer_success",
+                "httpPath":"your_http",
+                "schemaProjectName":"Your DB",
+                "disableClassify":true,
+                "staleDataTolerance":86400,
+                "bodataSchemaName":"customer_success",
+                "bodataTableName":"hr_sample_data_negative",
+                "dataSourceName":"Customer Success Hr Sample Data Negative",
+                "table":"hr_sample_data_negative","schema":"customer_success"
+            }
+        }
+    ],
+    "dataSource":
+    {
+        "blobHandler":
+        {
+            "scheme":"https",
+            "url":""
+        },
+        "expiration":"2022-03-26T03:59:59.999Z",
+        "blobHandlerType":"Databricks",
+        "recordFormat":"",
+        "type":"queryable",
+        "schemaEvolutionId":null,
+        "columnEvolutionEnabled":false
+    },
+    "schemaEvolution":
+    {
+        "ownerProfileId":2,
+        "config":
+        {
+            "nameTemplate":
+            {
+                "nameFormat":"<Schema> <Tablename>",
+                "tableFormat":"<tablename>",
+                "sqlSchemaNameFormat":"<schema>",
+                "schemaProjectNameFormat":"<Schema>"
+            }
+        },
+    "schemas":[]
+    }
+}
